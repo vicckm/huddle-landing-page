@@ -1,0 +1,161 @@
+@import "./variables.scss";
+
+body,
+p,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: $violet url("./images/bg-desktop.svg") no-repeat left 10vh;
+  @media (max-width: $bk-sm) {
+    background: $violet url("./images/bg-mobile.svg") no-repeat;
+  }
+}
+
+.introductory-section {
+  display: grid;
+  margin: 0 auto;
+  max-width: $bk-lg;
+  grid-template-areas:
+    "header header header"
+    "illustration main main "
+    "footer footer icons";
+  grid-template-columns: 3fr 1fr 1fr;
+  @media (max-width: $bk-sm) {
+    grid-template-areas:
+      "header"
+      "illustration"
+      "main"
+      "icons"
+      "footer";
+    grid-template-columns: 100%;
+  }
+
+}
+
+.header {
+  grid-area: header;
+  & img {
+    @media (max-width: $bk-sm) {
+      width: 130px;
+    }
+  }
+}
+
+.header-container {
+  padding: 20px;
+}
+
+.illustration {
+  grid-area: illustration;
+  margin: 100px 0px 0px 20px;
+  @media (max-width: $bk-sm) {
+    max-width: 90%;
+    margin: 20px;
+  }
+}
+
+.main {
+  grid-area: main;
+  margin: 150px 0px 0px 60px;
+  @media (max-width: $bk-sm) {
+    margin: 0 auto;
+    text-align: center;
+  }
+  & h1 {
+    color: $white;
+    font-family: $font-family-h1;
+    font-size: $font-size-h1-desktop;
+    margin-bottom: 20px;
+    max-width: 350px;
+    text-align: none;
+    @media (max-width: $bk-sm) {
+      font-family: $font-family-h1;
+      font-size: $font-size-h1;
+      margin: 0 auto;
+      max-width: 300px;
+      text-align: center;
+    }
+  }
+  & p {
+    color: $white;
+    font-family: $font-family-paragraph;
+    font-size: $font-size-paragraph;
+    @media (max-width: $bk-sm) {
+      margin: 20px 20px;
+      max-width: 350px;
+      text-align: center;
+    }
+  }
+
+  & button {
+    background: $white;
+    border: none;
+    border-radius: $border-radius-register;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    color: $violet;
+    font-family: $font-family-paragraph;
+    margin: 20px auto;
+    padding: 15px 80px;
+    outline: none;
+    &:hover {
+      background: $soft-magenta;
+      color: $white;
+    }
+    @media (max-width: $bk-sm) {
+      padding: 10px 80px;
+    }
+  }
+}
+
+.icons {
+  align-items: center;
+  display: flex;
+  grid-area: icons;
+  justify-content: center;
+  @media (max-width: $bk-sm) {
+    margin: 60px 0;
+  }
+  & .icon-item {
+    border: 1px solid $white;
+    border-radius: 100%;
+    color: $white;
+    height: 15px;
+    padding: 20px;
+    width: 15px;
+    & + .icon-item {
+      margin-left: 15px;
+    }
+    &:hover {
+      border-color: $soft-magenta;
+      color: $soft-magenta;
+    }
+  }
+}
+
+.footer {
+  align-items: center;
+  display: flex;
+  grid-area: footer;
+  justify-content: center;
+  margin-bottom: 20px;
+  & .attribution {
+    color: $white;
+    font-size: 11px;
+    text-align: center;
+    & a {
+      color: $soft-magenta;
+    }
+  }
+}
